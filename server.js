@@ -1,15 +1,13 @@
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT || 4050
+const PORT = process.env.PORT || 4050;
 
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.send({Server: "Working"});
+app.get('/home', (req, res) => {
+    res.send({Server: 'working'});
 })
 
 app.listen(PORT, () => {
-    console.log('Server started at: ' + PORT);
+    console.log('Sever started at port: ' + PORT);
 })
