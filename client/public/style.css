@@ -1,16 +1,68 @@
-td, th {
-    vertical-align:  middle !important;
-    text-align:center !important;
-}
-
-.input-group {
-    margin: 20px 0px
-}
 
 svg {
     height: 150px
 }
-td:first-of-type, td:first-of-type > div {
-    height: 200px;
-    width: 250px;
+
+.app {
+    margin-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
+.title {
+    font-family: 'Lobster', cursive;
+    font-size: 90px;
+    color: rgb(71, 172, 231); 
+    text-shadow: 0px 5px 10px rgba(69, 131, 189, 0.2);
+    padding: 1%;
+    text-align: center;
+}
+
+.search-bar {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.input-group {
+    box-shadow: 0px 5px 10px rgba(12, 13, 14, 0.2);
+}
+
+.data-table {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+/* Display graph */
+
+.data-display {
+    display: grid;
+    grid-template-columns: auto;
+    padding-top: 2%;
+   
+}
+
+.headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+
+.render-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 2%;
+    padding-bottom: 2%;    
+    text-align: center;
+}
+
+.chart-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.render-data {
+    padding-top: 3%;
+    border-bottom: 5px solid rgba(180, 180, 180, 0.5);
+
+}
+/* -------------------- */

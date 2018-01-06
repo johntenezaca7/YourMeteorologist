@@ -19,38 +19,39 @@ class WeatherList extends Component {
 		
 
 		return(
-			<tr key={name}>
-				<td><GoogleMap 
+			<div key={name} className="render-data">
+				<div>
+					<p>{name}</p>
+					<GoogleMap 
                         isMarkerShown={false}
                         center={{ lat: lat, lng: lon }}   
                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGGw0KAkK5iw2vwCSucTO1vJrQSwUxucA"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `220px` }} />}
                         mapElement={<div style={{ height: `90%` }} />}
-                 /></td>
-				<td><Chart data={newTemps} color="red" units="°F"/></td>
-				<td><Chart data={pressure} color="orange" units="hPa"/></td>
-				<td><Chart data={humidity} color="green" units="%"/></td>
-			</tr>
+                 	/>
+					<div className="chart-info">					 
+						<div>Temperature (°F)</div>
+						<div>Pressure (hPa)</div>
+						<div>Humidity (%)</div>
+					</div>
+				 </div>
+				<div className="render-charts">
+					<div><Chart data={newTemps} color="red" units="°F"/></div>
+					<div><Chart data={pressure} color="orange" units="hPa"/></div>
+					<div><Chart data={humidity} color="green" units="%"/></div>
+				</div>
+			</div>
 		)
 	}
 
     render(){
 			
         return(
-            <table className="table table-hover">
-							<thead>
-								<tr>
-									<th>City</th>
-									<th>Temperature (°F)</th>
-									<th>Pressure (hPa)</th>
-									<th>Humidity (%)</th>
-								</tr>
-							</thead>
-							<tbody>
-								{this.props.weather.map(this.renderWeather)}
-							</tbody>
-            </table>
+            <div className="data-display">
+				{this.props.weather.map(this.renderWeather)}
+
+			</div>
         );
     }
 }
@@ -62,3 +63,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(WeatherList);
+
