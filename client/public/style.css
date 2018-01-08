@@ -16,7 +16,20 @@ svg {
     padding: 1%;
     text-align: center;
 }
-
+.user-options {
+    text-align: right;
+    padding-right: 15%;
+    padding-bottom: 1%;
+   
+}
+.user-options-2 {
+    display: grid;
+    grid-template-columns: 10% 7%;
+    justify-content: right;
+    padding-right: 15%;
+    padding-bottom: 1%;
+   
+}
 .search-bar {
     padding-left: 15%;
     padding-right: 15%;
@@ -64,5 +77,10 @@ svg {
     padding-top: 3%;
     border-bottom: 5px solid rgba(180, 180, 180, 0.5);
 
+}
+
+.save-city{
+    display: grid;
+    grid-template-columns: 10% 30%;
 }
 /* -------------------- */

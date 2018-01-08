@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/charts';
-import GoogleMap from '../components/googleMaps'
+import GoogleMap from '../components/googleMaps';
+import CheckUser from '../components/checkUser';
 
 class WeatherList extends Component {
 
+
 	renderWeather(cityData) {
+	
+		cityData = cityData.info || cityData;
+
 		const name = cityData.city.name;
         const temps = cityData.list.map(weather => weather.main.temp);
         const newTemps = temps.map((each) => {
@@ -16,12 +21,15 @@ class WeatherList extends Component {
 		const pressure = cityData.list.map(weather => weather.main.pressure);
 		const humidity = cityData.list.map(weather => weather.main.humidity);
 		const { lon, lat }= cityData.city.coord
-		
+	
 
 		return(
 			<div key={name} className="render-data">
 				<div>
-					<p>{name}</p>
+					<div className="save-city">
+						<p>{name}</p>
+						<CheckUser city={name} selectedCity={cityData}/>
+					</div>	
 					<GoogleMap 
                         isMarkerShown={false}
                         center={{ lat: lat, lng: lon }}   
@@ -46,11 +54,22 @@ class WeatherList extends Component {
 	}
 
     render(){
-			
+		if(this.props.url === '/savedInfo'){
+			if(this.props.saved){
+	
+				return(
+					<div >
+						{this.props.saved.map(this.renderWeather)}
+					
+					</div>
+				)
+			} else {
+				return (<div>Loading</div>)
+			}
+		}
         return(
             <div className="data-display">
 				{this.props.weather.map(this.renderWeather)}
-
 			</div>
         );
     }
@@ -58,7 +77,7 @@ class WeatherList extends Component {
 
 function mapStateToProps(state){
 	return{
-		weather: state.weather
+		weather: state.weather,
 	}
 }
 
