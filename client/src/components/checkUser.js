@@ -28,7 +28,7 @@ class CheckUser extends Component{
                 );
                 default:
                     return (
-                        <div onClick={this.onClick}>
+                        <div onClick={this.onClick} className="save-this-city">
                         Save this city!
                         </div>
                     )
@@ -36,12 +36,7 @@ class CheckUser extends Component{
     }
 
     render(){
-        console.log('check userr', this.props)
-            if(this.props.url === '/savedInfo'){
-                    return(
-                        <div>Delete</div>
-                    )
-            } else {
+      
                 return (
                     <div>
                         {this.renderSaveCityButton()}
@@ -49,7 +44,7 @@ class CheckUser extends Component{
                 );
         }
     }
-}
+
 
 const mapStateToProps = (state) => { return { auth: state.authUser, url : state.url } }
 

@@ -26,10 +26,10 @@ class WeatherList extends Component {
 		return(
 			<div key={name} className="render-data">
 				<div>
-					<div className="save-city">
-						<p>{name}</p>
+					
+						<h4>{name}</h4>
 						<CheckUser city={name} selectedCity={cityData}/>
-					</div>	
+					
 					<GoogleMap 
                         isMarkerShown={false}
                         center={{ lat: lat, lng: lon }}   
@@ -45,9 +45,21 @@ class WeatherList extends Component {
 					</div>
 				 </div>
 				<div className="render-charts">
-					<div><Chart data={newTemps} color="red" units="°F"/></div>
-					<div><Chart data={pressure} color="orange" units="hPa"/></div>
-					<div><Chart data={humidity} color="green" units="%"/></div>
+						<div><Chart data={newTemps} color="red" units="°F"/></div>
+						<div><Chart data={pressure} color="orange" units="hPa"/></div>
+						<div><Chart data={humidity} color="green" units="%"/></div>
+				</div>
+				<div className="mobile-render-charts">
+					<div className="mobile-chart-info">					 
+							<div>Temperature (°F)</div>
+							<div>Pressure (hPa)</div>
+							<div>Humidity (%)</div>
+					</div>
+					<div>
+						<div><Chart data={newTemps} color="red" units="°F"/></div>
+						<div><Chart data={pressure} color="orange" units="hPa"/></div>
+						<div><Chart data={humidity} color="green" units="%"/></div>
+					</div>
 				</div>
 			</div>
 		)
@@ -56,10 +68,11 @@ class WeatherList extends Component {
     render(){
 		if(this.props.url === '/savedInfo'){
 			if(this.props.saved){
-	
+				const display = this.props.saved.reverse()
+				console.log(display)
 				return(
 					<div >
-						{this.props.saved.map(this.renderWeather)}
+						{display.map(this.renderWeather)}
 					
 					</div>
 				)
