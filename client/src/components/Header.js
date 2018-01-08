@@ -31,7 +31,7 @@ class Header extends Component {
                 </h1>
                 <p className="sub-title">5 day forecast is available at any location or city. Updates every 3 hours.</p>
                 <div>{this.renderContent()}</div>
-                { name ?  <div className="welcome-back">Welcome back, {name}!</div> : <div className="welcome-back">Sign in to save your your cities!</div>}
+                { name ?  <div className="welcome-back">Welcome back, {name}!</div> : <div className="welcome-back">Sign in to save your favorite cities!</div>}
             </div>
         )
     }
